@@ -1,4 +1,6 @@
-package agenda.domain.models;
+package agenda.domain;
+
+import agenda.domain.models.Contact;
 
 public class AddContactUseCase {
 

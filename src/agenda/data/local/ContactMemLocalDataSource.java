@@ -1,8 +1,9 @@
 package agenda.data.local;
 import agenda.domain.models.Contact;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 public class ContactMemLocalDataSource {
 
@@ -12,6 +13,20 @@ public class ContactMemLocalDataSource {
     private  ContactMemLocalDataSource(){
 
     }
+
+    public void save(Contact contact) {
+        storage.put(contact.getId(), contact);
+    }
+
+    public Contact findById(Integer contactId) {
+
+        return storage.get(contactId);
+    }
+
+    public List<Contact> findAll() {
+        return new ArrayList<>(storage.values());
+    }
+
 
     public static  ContactMemLocalDataSource getInstance(){
         if (instance == null){
