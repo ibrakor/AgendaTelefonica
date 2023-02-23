@@ -1,9 +1,9 @@
-package com.iesam.patternrepository.data.local;
+package agenda.data.local;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.iesam.patternrepository.domain.models.Contact;
-import domain.models.Contact;
+
+import agenda.domain.models.Contact;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,12 +33,14 @@ public class ContactFileLocalDataSource {
         saveToFile(contacts);
     }
 
+
+
     private void saveToFile(List<Contact> contacts) {
         try {
             FileWriter myWriter = new FileWriter("contacts.txt");
             myWriter.write(gson.toJson(contacts));
             myWriter.close();
-            System.out.println("Contact guardado correctamente");
+            System.out.println("Contacto guardado correctamente");
         } catch (IOException e) {
             System.out.println("Ha ocurrido un error");
             e.printStackTrace();
@@ -49,7 +51,7 @@ public class ContactFileLocalDataSource {
     public Contact findById(Integer contactId) {
         List<Contact> contacts = findAll();
         for (Contact contact : contacts) {
-            if (Objects.equals(contact.id, contactId)) {
+            if (Objects.equals(contact.getId(), contactId)) {
                 return contact;
             }
         }

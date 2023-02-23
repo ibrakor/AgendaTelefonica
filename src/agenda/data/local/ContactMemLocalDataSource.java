@@ -1,22 +1,23 @@
-package domain.data.local;
-import domain.models.Contact;
+package agenda.data.local;
+import agenda.domain.models.Contact;
 
 import java.util.Map;
 import java.util.TreeMap;
 
 public class ContactMemLocalDataSource {
 
-    private static ContactFileLocalDataSource instance = null;
+    private static ContactMemLocalDataSource instance = null;
     private Map<Integer, Contact> storage = new TreeMap<>();
 
     private  ContactMemLocalDataSource(){
 
     }
 
-    public static  ContactFileLocalDataSource getInstance(){
+    public static  ContactMemLocalDataSource getInstance(){
         if (instance == null){
             instance = new ContactMemLocalDataSource();
         }
+        return instance;
     }
 }
 

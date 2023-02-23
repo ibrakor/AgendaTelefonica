@@ -1,4 +1,4 @@
-package domain.models;
+package agenda.domain.models;
 
 public class Contact {
 
