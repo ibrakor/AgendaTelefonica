@@ -15,15 +15,16 @@ public class TerminalView {
         contact.setId(18);
         contact.setName("Ibra");
         contact.setSurname("Korsan");
-        contact.setName("brahim@brahim.com");
+        contact.setEmail("brahim@brahim.com");
         contact.setPhoneNumber("123456879");
 
 
         ContactRepository contactRepository = new ContactDataRepository();
         AddContactUseCase addContactUseCase = new AddContactUseCase(contactRepository);
-        addContactUseCase.execute(contact);
+        //addContactUseCase.execute(contact);
 
         GetContactsUseCase getContactsUseCase = new GetContactsUseCase(contactRepository);
         List<Contact> contactList = getContactsUseCase.execute();
+        System.out.println(contactList.size());
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ContactDataRepository implements ContactRepository {
 
-    private ContactMemLocalDataSource localDataSource = ContactMemLocalDataSource.getInstance();
+    private ContactFileLocalDataSource localDataSource = ContactFileLocalDataSource.getInstance();
     @Override
     public void save(Contact contact) {
         localDataSource.save(contact);
